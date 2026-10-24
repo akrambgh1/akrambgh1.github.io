@@ -123,6 +123,7 @@ export const HOVER_FRAGMENT = /* glsl */ `
   uniform vec2 uMouse;
   uniform vec2 uFocus;
   uniform float uHover;
+  uniform float uAlpha;
   uniform float uTime;
   varying vec2 vUv;
   ${NOISE}
@@ -143,6 +144,6 @@ export const HOVER_FRAGMENT = /* glsl */ `
       texture2D(uTex, c).g,
       texture2D(uTex, c - vec2(shift, 0.0)).b
     );
-    gl_FragColor = vec4(col, uHover);
+    gl_FragColor = vec4(col, uAlpha);
   }
 `;

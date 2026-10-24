@@ -1,7 +1,7 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
-import { hoverState, subscribeHover } from "./hoverStore";
+import { hoverState, subscribeHover, type HoverTarget } from "./hoverStore";
 import { HOVER_FRAGMENT, VERTEX } from "./shaders";
 
 const loader = new THREE.TextureLoader();
@@ -30,6 +30,7 @@ function Lens() {
   const hover = useRef(0);
   const mouse = useRef(new THREE.Vector2(0.5, 0.5));
   const src = useRef<string | null>(null);
+  const last = useRef<HoverTarget | null>(null);
 
   const uniforms = useMemo(
     () => ({
@@ -39,6 +40,7 @@ function Lens() {
       uMouse: { value: new THREE.Vector2(0.5, 0.5) },
       uFocus: { value: new THREE.Vector2(0.5, 0) },
       uHover: { value: 0 },
+      uAlpha: { value: 0 },
       uTime: { value: 0 },
     }),
     []
@@ -48,9 +50,12 @@ function Lens() {
   useEffect(() => subscribeHover(() => invalidate()), [invalidate]);
 
   useFrame((state, delta) => {
-    const target = hoverState.target;
-    const goal = target ? 1 : 0;
+    // While fading out, keep following (and clipping to) the card we just left,
+    // otherwise the slightly larger parallax image would spill outside its frame
+    if (hoverState.target) last.current = hoverState.target;
+    const goal = hoverState.target ? 1 : 0;
     hover.current += (goal - hover.current) * Math.min(1, delta * 7);
+    const target = hover.current > 0.002 ? last.current : null;
     const m = mesh.current;
 
     // Clear the whole canvas first, then draw only inside the hovered frame
@@ -82,9 +87,12 @@ function Lens() {
 
     mouse.current.set(hoverState.mouse.x, hoverState.mouse.y);
     uniforms.uMouse.value.lerp(mouse.current, 0.18);
+    // The distortion eases in and out; the layer stays opaque until the distortion is almost gone.
+    // With no distortion it matches the DOM image pixel for pixel, so it can then vanish without a ghost.
     uniforms.uHover.value = hover.current;
+    uniforms.uAlpha.value = Math.min(1, hover.current * 12);
     uniforms.uTime.value += delta;
-    if (m) m.visible = hover.current > 0.002 && Boolean(uniforms.uTex.value);
+    if (m) m.visible = Boolean(target) && Boolean(uniforms.uTex.value);
 
     if (m?.visible) {
       gl.autoClear = false;
@@ -92,9 +100,12 @@ function Lens() {
     }
     gl.setScissorTest(false);
 
-    // Keep animating while easing in or out, then go idle (no frames when nothing is hovered)
-    if (Math.abs(goal - hover.current) > 0.002 || target) invalidate();
-    else if (!target) src.current = null;
+    // Keep animating while hovered or easing out, then go idle (no frames when nothing is hovered)
+    if (hoverState.target || target) invalidate();
+    else {
+      last.current = null;
+      src.current = null;
+    }
   }, 1);
 
   return (
