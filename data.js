@@ -57,9 +57,9 @@ window.PORTFOLIO = {
       type: "fullstack",
       featured: true,
       description: "A Bitly-style URL shortener with custom aliases, QR codes and a click analytics dashboard (timeline, referrers, devices, unique visitors).",
-      tech: ["Node.js", "Express", "SQLite", "Chart.js"],
-      highlights: ["Bot-filtered tracking", "Privacy-friendly visitor hashing", "9 integration tests"],
-      live: null,
+      tech: ["Node.js", "Express", "Postgres", "Chart.js", "Vercel"],
+      highlights: ["Bot-filtered tracking", "Privacy-friendly visitor hashing", "16 tests on SQLite + Postgres"],
+      live: "https://link-shortener-alpha-orpin.vercel.app/",
       colors: ["#6366f1", "#ec4899"],
     },
     {

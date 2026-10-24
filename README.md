@@ -27,7 +27,7 @@ Everything is in **`data.js`**: name, role, bio, links, skills and the project l
 |---------|------|-------|
 | FlowBoard: Notion-style task workspace | React | [Demo](https://akrambgh1.github.io/kanban-board/) · [Code](https://github.com/akrambgh1/kanban-board) |
 | Lumen: AI toolkit in the browser | AI | [Demo](https://akrambgh1.github.io/ai-toolkit/) · [Code](https://github.com/akrambgh1/ai-toolkit) |
-| Snip: link shortener + analytics | Full-stack | [Code](https://github.com/akrambgh1/link-shortener) |
+| Snip: link shortener + analytics | Full-stack | [Demo](https://link-shortener-alpha-orpin.vercel.app/) · [Code](https://github.com/akrambgh1/link-shortener) |
 | ShopLite: e-commerce store | React | [Demo](https://akrambgh1.github.io/ecommerce-store/) · [Code](https://github.com/akrambgh1/ecommerce-store) |
 | NoteVault: REST API + JWT auth | Full-stack | [Demo](https://notes-api-omega-tawny.vercel.app/) · [Code](https://github.com/akrambgh1/notes-api) |
 | Chatter: real-time chat | Full-stack | [Code](https://github.com/akrambgh1/realtime-chat) |
