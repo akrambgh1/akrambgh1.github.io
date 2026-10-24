@@ -1,128 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>akrambgh1 — Full-Stack Developer Portfolio</title>
-  <meta name="description" content="Portfolio of akrambgh1: nine web projects with live demos, from React apps to Node.js APIs and in-browser AI.">
-  <meta property="og:title" content="akrambgh1 — Full-Stack Developer">
-  <meta property="og:description" content="Nine projects with live demos: React, Node.js, real-time apps and in-browser AI.">
+  <title>akrambgh1, full-stack engineer</title>
+  <meta name="description" content="Full-stack engineer building calm, fast web software: React interfaces, Node.js APIs, real-time systems and in-browser AI. Nine shipped projects with live demos.">
+  <meta property="og:title" content="akrambgh1, full-stack engineer">
+  <meta property="og:description" content="Nine shipped projects with live demos: React, Node.js, WebRTC and in-browser AI.">
+  <meta property="og:image" content="/projects/flowboard.jpg">
   <meta property="og:type" content="website">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+  <meta name="theme-color" content="#F7F5F1">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2322201D'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' text-anchor='middle' fill='%23F7F5F1'%3Ea%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script>
-    // Apply the saved theme before the page paints (avoids a flash)
-    try {
-      const t = localStorage.getItem("portfolio:theme");
-      if (t) document.documentElement.dataset.theme = t;
-    } catch (e) {}
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <a class="skip" href="#projects">Skip to projects</a>
-
-  <header class="nav" id="top">
-    <div class="nav-inner">
-      <a href="#top" class="brand"><span class="brand-mark">{ }</span> <span id="navName"></span></a>
-      <nav class="nav-links" aria-label="Main">
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <button id="themeBtn" class="icon-btn" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
-    </div>
-  </header>
-
-  <main>
-    <!-- Hero -->
-    <section class="hero">
-      <div class="orb orb-1"></div>
-      <div class="orb orb-2"></div>
-      <div class="hero-inner">
-        <img id="avatar" class="avatar" alt="Profile photo" width="112" height="112">
-        <p id="available" class="available" hidden><span class="pulse"></span> Open to work</p>
-        <h1>Hi, I'm <span id="heroName" class="grad"></span>.<br><span id="heroRole"></span></h1>
-        <p id="tagline" class="tagline"></p>
-        <div class="hero-cta">
-          <a href="#projects" class="btn primary">See my projects ↓</a>
-          <a id="githubBtn" class="btn ghost" target="_blank" rel="noopener">GitHub ↗</a>
-        </div>
-        <dl class="stats" id="stats"></dl>
-      </div>
-    </section>
-
-    <!-- Featured -->
-    <section class="section" id="projects">
-      <div class="section-head">
-        <span class="eyebrow">Selected work</span>
-        <h2>Featured projects</h2>
-        <p class="muted">Each one is open source on GitHub with a detailed README.</p>
-      </div>
-      <div id="featured" class="featured"></div>
-    </section>
-
-    <!-- All projects -->
-    <section class="section">
-      <div class="section-head row">
-        <div>
-          <span class="eyebrow">Everything</span>
-          <h2>All projects</h2>
-        </div>
-        <div class="filters" role="group" aria-label="Filter projects">
-          <button class="filter active" data-filter="all">All</button>
-          <button class="filter" data-filter="frontend">Frontend</button>
-          <button class="filter" data-filter="fullstack">Full-stack</button>
-          <button class="filter" data-filter="ai">AI</button>
-        </div>
-      </div>
-      <div id="grid" class="grid"></div>
-    </section>
-
-    <!-- Skills -->
-    <section class="section" id="skills">
-      <div class="section-head">
-        <span class="eyebrow">Toolbox</span>
-        <h2>Skills & technologies</h2>
-      </div>
-      <div id="skillGroups" class="skills"></div>
-    </section>
-
-    <!-- About -->
-    <section class="section about" id="about">
-      <div class="section-head">
-        <span class="eyebrow">About me</span>
-        <h2>Learning by shipping</h2>
-      </div>
-      <div class="about-grid">
-        <div id="aboutText" class="about-text"></div>
-        <ul class="principles">
-          <li><span>🎯</span><div><strong>User first</strong><p>Responsive layouts, accessible controls and small UX details: undo, empty states, keyboard support.</p></div></li>
-          <li><span>🧪</span><div><strong>Tested backends</strong><p>APIs with validation, auth, rate limiting and integration tests that run with one command.</p></div></li>
-          <li><span>🚀</span><div><strong>Shipped, not just coded</strong><p>CI/CD with GitHub Actions, live demos and READMEs that explain decisions.</p></div></li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="section" id="contact">
-      <div class="contact">
-        <h2>Let's build something together</h2>
-        <p>I'm looking for opportunities as a developer. Have a project, a role or a question? Reach out.</p>
-        <div id="contactLinks" class="contact-links"></div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <p>Designed & built by <span id="footName"></span> · Plain HTML, CSS and JavaScript · Hosted on GitHub Pages</p>
-    <a href="#top">Back to top ↑</a>
-  </footer>
-
-  <script src="data.js"></script>
-  <script src="main.js"></script>
+  <div id="root"></div>
+  <noscript>This portfolio needs JavaScript. Projects: github.com/akrambgh1</noscript>
+  <script type="module" src="/src/main.tsx"></script>
 </body>
 </html>
