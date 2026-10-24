@@ -79,9 +79,9 @@ window.PORTFOLIO = {
       emoji: "🗒️",
       type: "fullstack",
       description: "A secure notes app built on a tested REST API: bcrypt password hashing, JWT auth, per-user data, validation, search, tags and rate limiting.",
-      tech: ["Node.js", "Express", "SQLite", "JWT"],
-      highlights: ["9 integration tests", "Security headers + CSP", "Full API docs"],
-      live: null,
+      tech: ["Node.js", "Express", "Postgres", "JWT", "Vercel"],
+      highlights: ["18 tests on SQLite + Postgres", "Security headers + CSP", "Serverless on Vercel + Neon"],
+      live: "https://notes-api-omega-tawny.vercel.app/",
       colors: ["#0f766e", "#2dd4bf"],
     },
     {
