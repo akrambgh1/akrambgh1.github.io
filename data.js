@@ -91,8 +91,9 @@ window.PORTFOLIO = {
       type: "fullstack",
       description: "A real-time chat with rooms, live online users, typing indicators, message history, unread badges and auto-reconnect.",
       tech: ["Socket.io", "Node.js", "Express", "Vanilla JS"],
-      highlights: ["WebSockets", "XSS-safe rendering", "Rate limiting"],
-      live: null,
+      highlights: ["WebSockets on Render", "XSS-safe rendering", "Rate limiting"],
+      live: "https://chatter-realtime-chat.onrender.com/",
+      note: "Free hosting: the first visit may take ~30 s to wake up",
       colors: ["#5b7cfa", "#ec4899"],
     },
     {

@@ -67,6 +67,7 @@ function actions(p) {
   if (p.live) row.append(link(p.live, "btn primary sm", "Live demo ↗"));
   row.append(link(repoUrl(p.repo), `btn ${p.live ? "ghost" : "primary"} sm`, "Source code"));
   if (!p.live) row.append(el("span", "note", "Needs a server · run locally or deploy free"));
+  else if (p.note) row.append(el("span", "note", p.note));
   return row;
 }
 

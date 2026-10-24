@@ -30,7 +30,7 @@ Everything is in **`data.js`**: name, role, bio, links, skills and the project l
 | Snip: link shortener + analytics | Full-stack | [Demo](https://link-shortener-alpha-orpin.vercel.app/) · [Code](https://github.com/akrambgh1/link-shortener) |
 | ShopLite: e-commerce store | React | [Demo](https://akrambgh1.github.io/ecommerce-store/) · [Code](https://github.com/akrambgh1/ecommerce-store) |
 | NoteVault: REST API + JWT auth | Full-stack | [Demo](https://notes-api-omega-tawny.vercel.app/) · [Code](https://github.com/akrambgh1/notes-api) |
-| Chatter: real-time chat | Full-stack | [Code](https://github.com/akrambgh1/realtime-chat) |
+| Chatter: real-time chat | Full-stack | [Demo](https://chatter-realtime-chat.onrender.com/) · [Code](https://github.com/akrambgh1/realtime-chat) |
 | Binge: TV show explorer | React | [Demo](https://akrambgh1.github.io/tv-show-explorer/) · [Code](https://github.com/akrambgh1/tv-show-explorer) |
 | Spendly: expense tracker | React | [Demo](https://akrambgh1.github.io/expense-tracker/) · [Code](https://github.com/akrambgh1/expense-tracker) |
 | SkyCast: weather app | JavaScript | [Demo](https://akrambgh1.github.io/weather-app/) · [Code](https://github.com/akrambgh1/weather-app) |
